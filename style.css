@@ -41,8 +41,11 @@ body {
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  background: url("./images/main.jpg");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
 
 input,
 button,
@@ -90,3 +93,103 @@ h6 {
   color: red;
 }
 /*Normalize*/
+
+header {
+  max-width: 1300px;
+  padding: 1%;
+}
+
+h1 {
+  font-size: 200%;
+  color: tomato;
+  font-style: italic;
+  font-weight: bold;
+}
+
+main {
+  max-width: 1300px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  flex-direction: column;
+  align-items: center;
+}
+
+section {
+  box-sizing: border-box;
+  height: 350px;
+}
+
+.card {
+  height: 350px;
+  display: flex;
+  gap:2%;
+}
+.book {
+  width: 360px;
+}
+.bookImage {
+  height: 100%;
+  width: 100%;
+
+  position: relative;
+}
+
+.img {
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+}
+
+.textblock {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.6);
+  gap: 5%;
+}
+
+.title {
+  color: tomato;
+  font-size: 150%;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 125%;
+  color: tomato;
+}
+h4 {
+  font-size: 125%;
+  color: tomato;
+}
+.buttonblock {
+  font-size: 125%;
+  display: flex;
+  color: tomato;
+  gap: 5%;
+}
+
+.buttonShow {
+  color: tomato;
+  background-color: white;
+  padding:2%;
+  border: 3px solid tomato;
+  font-weight: bold;
+}
+
+.buttonAdd {
+  color: tomato;
+  background-color: white;
+  padding:2%;
+  font-weight: bold;
+  border: 3px solid tomato;
+}
+.buttonShow:hover {
+  color: black;
+}
+
+.buttonAdd:hover {
+  color: black;
+}
