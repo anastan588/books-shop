@@ -138,70 +138,53 @@ function cardOfBook() {
     buttonShow.textContent = "Show More ";
     buttonblock.append(buttonShow);
 
-    var buttonAdd = document.createElement("button");
+    buttonShow.onclick = function popUp() {
+      let OVERLAY = document.createElement("div");
+      OVERLAY.className = "overlay";
+      document.body.prepend(OVERLAY);
+      OVERLAY.classList.add("open");
+
+      let popup = document.createElement("div");
+      popup.className = "popup";
+      document.body.prepend(popup);
+      popup.classList.add("open");
+
+      let popuptext = document.createElement("div");
+      popuptext.className = "popuptext";
+      popup.append(popuptext);
+
+      let popupClose = document.createElement("img");
+      popupClose.className = "popupClose";
+      popupClose.src = "./images/close.svg";
+      popuptext.append(popupClose);
+
+      let popupTitle = document.createElement("p");
+      popupTitle.className = "popupTitle";
+      popupTitle.innerHTML = `${book.title}`;
+      popuptext.append(popupTitle);
+
+      let popupDescription = document.createElement("p");
+      popupDescription.className = "popupDescription";
+      popupDescription.innerHTML = `${book.description}`;
+      popuptext.append(popupDescription);
+
+      popupClose.addEventListener("click", popUpClose);
+      OVERLAY.addEventListener("click", popUpClose);
+
+      function popUpClose() {
+        popup.remove();
+        OVERLAY.remove();
+      }
+    };
+
+    let buttonAdd = document.createElement("button");
     buttonAdd.className = "buttonAdd";
     buttonAdd.textContent = "Add To Bag";
     buttonblock.append(buttonAdd);
-
-    /*var modalContent = document.createElement("div");
-                modalContent.className = "modal-content";
-                modal.appendChild(modalContent);
-    
-                var modalheader = document.createElement("p");
-                modalheader.className = "modalHeader";
-                modalheader.innerHTML = `${arr.author}`
-                modalContent.appendChild(modalheader);
-    
-                var modalBody = document.createElement("p");
-                modalBody.className="modalBody";
-                modalBody.innerHTML = `${arr.description}`
-                modalContent.appendChild(modalBody);
-    
-                var close = document.createElement("span");
-                close.className = "close";
-                close.textContent= "close"
-                modalContent.appendChild(close);*/
-
-    // When the user clicks the button, open the modal
-    /* buttonShow.onclick = function () {
-      popup.style.display = "block";
-    };
-    close.onclick = function () {
-      popup.style.display = "none";
-    };*/
   });
 }
 
 cardOfBook(books);
-
-/*books.forEach((description) => {
-  description.addEventListener("click", popUp);
-});
-
-function popUp() {
- OVERLAY.classList.add("open");
- let popup = document.createElement("div");
-    popup.className = "popup";
-    document.body.prepend(popup);
-  let div = document.createElement("div");
-  div.setAttribute("id", "testimonials_popup");
-let divclone = this.cloneNode(true);
-let divclose = document.createElement("div");
-divclose.setAttribute("id", "close");
-divclone.style.zIndex = `102`;
-divclose.innerHTML = '<div class ="comment_close"></div>';
-divclone.append(divclose);
-  div.prepend(divclone);
-  reviews.prepend(div);
-  const closeIcon = document.querySelector('.comment_close');
-closeIcon.addEventListener("click", popUpClose);
-OVERLAY_MOBILE.addEventListener("click", popUpClose);
-
-function popUpClose() {
-  div.remove();
-  OVERLAY_MOBILE.classList.remove("open");
-}
-}*/
 
 let footer = document.createElement("footer");
 document.body.appendChild(footer);

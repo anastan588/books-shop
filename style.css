@@ -117,7 +117,7 @@ main {
   column-gap: 15px;
   flex-direction: column;
   align-items: center;
-  
+
   flex: 1 1 auto;
 }
 
@@ -218,23 +218,67 @@ footer {
   width: 100%;
 }
 .rsImage {
- height: 50px;
+  height: 50px;
 }
 
 .year {
-display:flex;
-align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-
 .yeartext {
-font-size: 200%;
-font-weight: bold;
-font-style: italic;
+  font-size: 200%;
+  font-weight: bold;
+  font-style: italic;
 }
 
 .popup {
-  position: fixed;
-  z-index: 3;
   display: none;
+}
+
+.popup.open {
+  max-width: 60%;
+  position: fixed;
+  z-index: 4;
+  display: block;
+  left: 25%;
+  top: 25%;
+  background-color: rgba(255, 255, 255, 1);
+  border: 2px solid tomato;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.overlay {
+  display: none;
+}
+
+.overlay.open {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  display: block;
+}
+.popuptext {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.popupTitle {
+  align-self: center;
+  font-size: 125%;
+  font-weight: bold;
+}
+.popupDescription {
+  font-style: italic;
+}
+
+.popupClose {
+  align-self: end;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
 }
