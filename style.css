@@ -41,10 +41,11 @@ body {
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  background: url("./images/main.jpg");
+  background-color: burlywood;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100%;
 }
 
 input,
@@ -95,44 +96,56 @@ h6 {
 /*Normalize*/
 
 header {
-  max-width: 1300px;
-  padding: 1%;
+  max-width: 1100px;
+  padding: 3%;
 }
 
 h1 {
   font-size: 200%;
-  color: tomato;
+  color: black;
   font-style: italic;
   font-weight: bold;
 }
 
 main {
-  max-width: 1300px;
-  box-sizing: border-box;
+  max-width: 1200px;
+  box-sizing: content-box;
   display: grid;
   grid-template-columns: 50% 50%;
+  grid-template-rows: repeat(5, 1fr);
+  row-gap: 20px;
+  column-gap: 15px;
   flex-direction: column;
   align-items: center;
+  
+  flex: 1 1 auto;
 }
 
 section {
-  box-sizing: border-box;
+  box-sizing: content-box;
   height: 350px;
+  display: flex;
 }
 
 .card {
   height: 350px;
   display: flex;
-  gap:2%;
+  gap: 2%;
+  background: url("./images/main.jpg");
+  background-size: 100% 100%;
+  padding: 2%;
+  flex-basis: 100%;
+  box-sizing: border-box;
 }
 .book {
-  width: 360px;
+  flex-basis: 50%;
+  display: flex;
 }
 .bookImage {
   height: 100%;
   width: 100%;
-
   position: relative;
+  flex-basis: 100%;
 }
 
 .img {
@@ -147,22 +160,25 @@ section {
   flex-direction: column;
   box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.6);
+  padding: 2%;
   gap: 5%;
+  color: black;
+  border-radius: 5%;
+  flex-basis: 50%;
 }
 
 .title {
-  color: tomato;
   font-size: 150%;
   font-weight: bold;
 }
 
 h3 {
   font-size: 125%;
-  color: tomato;
+  font-style: italic;
 }
 h4 {
   font-size: 125%;
-  color: tomato;
+  font-weight: bold;
 }
 .buttonblock {
   font-size: 125%;
@@ -174,7 +190,7 @@ h4 {
 .buttonShow {
   color: tomato;
   background-color: white;
-  padding:2%;
+  padding: 2%;
   border: 3px solid tomato;
   font-weight: bold;
 }
@@ -182,7 +198,7 @@ h4 {
 .buttonAdd {
   color: tomato;
   background-color: white;
-  padding:2%;
+  padding: 2%;
   font-weight: bold;
   border: 3px solid tomato;
 }
@@ -192,4 +208,33 @@ h4 {
 
 .buttonAdd:hover {
   color: black;
+}
+
+footer {
+  max-width: 1200px;
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.rsImage {
+ height: 50px;
+}
+
+.year {
+display:flex;
+align-items: center;
+}
+
+
+.yeartext {
+font-size: 200%;
+font-weight: bold;
+font-style: italic;
+}
+
+.popup {
+  position: fixed;
+  z-index: 3;
+  display: none;
 }
