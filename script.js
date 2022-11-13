@@ -2,7 +2,7 @@ const books = [
   {
     author: "Douglas Crockford",
     imageLink: "images/1.jpg",
-    title: "JavaScript: The Good Parts: The Good Parts",
+    title: "JavaScript: The Good Parts",
     price: 30,
     description:
       "With JavaScript: The Good Parts, you'll discover a beautiful, elegant, lightweight and highly expressive language that lets you create effective code, whether you're managing object libraries or just trying to get Ajax to run fast. If you develop sites or applications for the Web, this book is an absolute must",
@@ -84,65 +84,135 @@ const books = [
 console.log(books);
 
 let header = document.createElement("header");
-document.body.appendChild(header);
+document.body.append(header);
 
 let h1 = document.createElement("h1");
-header.appendChild(h1);
+header.append(h1);
 h1.textContent = "Welcome  to amazing books shop!";
 
 let main = document.createElement("main");
-document.body.appendChild(main);
+document.body.append(main);
 
 function cardOfBook() {
   books.map((book) => {
     let card = document.createElement("section");
     let carddiv = document.createElement("div");
     carddiv.classList = "card";
-    card.appendChild(carddiv);
-    document.getElementsByTagName("main")[0].appendChild(card);
+    card.append(carddiv);
+    document.getElementsByTagName("main")[0].append(card);
 
     let div = document.createElement("div");
     div.id = "book";
     div.className = "book";
-    carddiv.appendChild(div);
+    carddiv.append(div);
     let bookImage = document.createElement("div");
     bookImage.className = "bookImage";
-    div.appendChild(bookImage);
+    div.append(bookImage);
 
     let img = document.createElement("img");
     img.className = "img";
     img.src = `${book.imageLink}`;
-    bookImage.appendChild(img);
+    bookImage.append(img);
 
     let textblock = document.createElement("div");
     textblock.className = "textblock";
-    carddiv.appendChild(textblock);
+    carddiv.append(textblock);
     let title = document.createElement("h2");
     title.className = "title";
-    textblock.appendChild(title);
+    textblock.append(title);
     title.innerHTML = `${book.title}`;
 
     let h3 = document.createElement("h3");
-    textblock.appendChild(h3);
+    textblock.append(h3);
     h3.innerHTML = `${book.author}`;
     let h4 = document.createElement("h4");
-    textblock.appendChild(h4);
-    h4.innerHTML = ` ${book.price}` + "$";
+    textblock.append(h4);
+    h4.innerHTML = `Price: ${book.price}` + "$";
 
     let buttonblock = document.createElement("div");
     buttonblock.className = "buttonblock";
-    textblock.appendChild(buttonblock);
+    textblock.append(buttonblock);
 
     let buttonShow = document.createElement("button");
     buttonShow.className = "buttonShow";
     buttonShow.textContent = "Show More ";
-    buttonblock.appendChild(buttonShow);
+    buttonblock.append(buttonShow);
 
     var buttonAdd = document.createElement("button");
     buttonAdd.className = "buttonAdd";
-    buttonAdd.textContent = "Add To Cart";
-    buttonblock.appendChild(buttonAdd);
+    buttonAdd.textContent = "Add To Bag";
+    buttonblock.append(buttonAdd);
+
+    /*var modalContent = document.createElement("div");
+                modalContent.className = "modal-content";
+                modal.appendChild(modalContent);
+    
+                var modalheader = document.createElement("p");
+                modalheader.className = "modalHeader";
+                modalheader.innerHTML = `${arr.author}`
+                modalContent.appendChild(modalheader);
+    
+                var modalBody = document.createElement("p");
+                modalBody.className="modalBody";
+                modalBody.innerHTML = `${arr.description}`
+                modalContent.appendChild(modalBody);
+    
+                var close = document.createElement("span");
+                close.className = "close";
+                close.textContent= "close"
+                modalContent.appendChild(close);*/
+
+    // When the user clicks the button, open the modal
+    /* buttonShow.onclick = function () {
+      popup.style.display = "block";
+    };
+    close.onclick = function () {
+      popup.style.display = "none";
+    };*/
   });
 }
 
 cardOfBook(books);
+
+/*books.forEach((description) => {
+  description.addEventListener("click", popUp);
+});
+
+function popUp() {
+ OVERLAY.classList.add("open");
+ let popup = document.createElement("div");
+    popup.className = "popup";
+    document.body.prepend(popup);
+  let div = document.createElement("div");
+  div.setAttribute("id", "testimonials_popup");
+let divclone = this.cloneNode(true);
+let divclose = document.createElement("div");
+divclose.setAttribute("id", "close");
+divclone.style.zIndex = `102`;
+divclose.innerHTML = '<div class ="comment_close"></div>';
+divclone.append(divclose);
+  div.prepend(divclone);
+  reviews.prepend(div);
+  const closeIcon = document.querySelector('.comment_close');
+closeIcon.addEventListener("click", popUpClose);
+OVERLAY_MOBILE.addEventListener("click", popUpClose);
+
+function popUpClose() {
+  div.remove();
+  OVERLAY_MOBILE.classList.remove("open");
+}
+}*/
+
+let footer = document.createElement("footer");
+document.body.appendChild(footer);
+let rsImage = document.createElement("img");
+rsImage.className = "rsImage";
+rsImage.src = "./images/logo-rsschool3.png";
+footer.appendChild(rsImage);
+let year = document.createElement("div");
+year.className = "year";
+footer.appendChild(year);
+let yeartext = document.createElement("p");
+yeartext.className = "yeartext";
+year.appendChild(yeartext);
+yeartext.textContent = "2022";
