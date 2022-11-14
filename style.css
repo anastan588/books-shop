@@ -117,7 +117,7 @@ main {
   column-gap: 15px;
   flex-direction: column;
   align-items: center;
-
+   position:relative;
   flex: 1 1 auto;
 }
 
@@ -159,7 +159,7 @@ section {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 2%;
   gap: 5%;
   color: black;
@@ -282,3 +282,119 @@ footer {
   width: 25px;
   height: 25px;
 }
+
+
+.bag {
+width: 15%;
+position:fixed;
+z-index:3;
+background-color: tomato;
+left:83%;
+top:3%;
+border: 2px solid white;
+border-radius: 5px;
+cursor:pointer;
+padding: 5px;
+}
+
+.bagContainer {
+display: flex;
+flex-direction:column;
+gap: 10px;
+color: white;
+font-weight:bold;
+
+}
+
+.bagTitle {
+font-weight:bold;
+}
+
+.bagAmountOfBooks {
+ font-style: italic;
+display:flex;
+gap: 5px;
+
+}
+
+.amountOfBooksText {
+ font-style: italic;
+
+}
+
+.amountOfBooksDigit {
+ font-style: italic;
+}
+
+.bagPrice {
+ display: flex;
+gap: 5px;
+
+}
+
+.bagPriceText {
+}
+
+
+
+.bagPriceAmount {
+}
+
+.hiddenBag  {
+width: 25%;
+position:fixed;
+z-index:3;
+background-color: tomato;
+left:80%;
+top:25%;
+display:flex;
+flex-direction: column;
+cursor:pointer;
+padding: 5px;
+gap: 30px;
+color: white;
+font-weight:bold;
+display:none;
+
+}
+
+.booksList {
+display:flex;
+gap: 30px;
+}
+
+.bagButtonBlock {
+display:flex;
+gap: 30px;
+
+}
+
+.confirmOrder {
+padding: 5px;
+background-color: white;
+border: 2px solid black;
+border-radius: 5px;
+font-weight:bold;
+
+}
+
+
+.clearAll {
+padding: 5px;
+background-color: white;
+border: 2px solid black;
+border-radius: 5px;
+font-weight:bold;
+
+}
+
+.confirmOrder:hover {
+  color: tomato;
+
+}
+
+.clearAll:hover {
+  color: tomato;
+
+}
+
