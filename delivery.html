@@ -5,11 +5,88 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Delivery Form</title>
-    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="delivery.css" type="text/css" />
   </head>
   <body>
     <header><h1>Confirm order</h1></header>
-    <main></main>
+    <main>
+      <form id="confirm-form" action="">
+        <div class="input-container">
+          <label for="">Name:</label>
+          <div class="input-name">
+            <input
+              onkeydown="handleEnter(event)"
+              type="text"
+              id="name-field"
+              name=""
+            />
+          </div>
+          <p id="name-alert" class="alert">The field is invalid</p>
+        </div>
+        <div class="input-container">
+          <label for="">Surname:</label>
+          <div class="input-surname">
+            <input
+              onkeydown="handleEnter(event)"
+              type="text"
+              id="name-field"
+              name=""
+            />
+          </div>
+          <p id="name-alert" class="alert">The field is invalid</p>
+        </div>
+        <div class="input-container">
+          <label for="">Delivery date:</label>
+          <div class="input-date">
+            <input
+              onkeydown="handleEnter(event)"
+              type="date"
+              id="date-field"
+              name=""
+            />
+          </div>
+          <p id="name-alert" class="alert">The field is invalid</p>
+        </div>
+        <div class="input-container">
+          <label for="">Street number:</label>
+          <div class="input-street">
+            <input
+              onkeydown="handleEnter(event)"
+              type="text"
+              id="street-field"
+              name=""
+            />
+          </div>
+          <p id="name-alert" class="alert">The field is invalid</p>
+        </div>
+        <br />
+        <div class="input-container">
+          <label for="">House number:</label>
+          <div class="input-house">
+            <input
+              onkeydown="handleEnter(event)"
+              type="text"
+              id="house-field"
+              name=""
+            />
+          </div>
+          <p id="name-alert" class="alert">The field is invalid</p>
+        </div>
+        <br />
+        <div class="input-container">
+          <label for="">Flat number:</label>
+          <div class="input-flat">
+            <input
+              onkeydown="handleEnter(event)"
+              type="text"
+              id="flat-field"
+              name=""
+            />
+          </div>
+          <p id="name-alert" class="alert">The field is invalid</p>
+        </div>
+      </form>
+    </main>
     <footer>
       <img class="rsImage" src="./images/logo-rsschool3.png" />
       <div class="year">
