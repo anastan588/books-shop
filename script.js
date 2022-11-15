@@ -132,8 +132,7 @@ bagPrice.append(bagPriceText);
 let bagPriceAmount = document.createElement("p");
 bagPriceAmount.className = "bagPriceAmount";
 let countOfOrder = 0;
-let resultPrice = 0;
-bagPriceAmount = `${countOfOrder}`;
+bagPriceAmount.innerHTML = `${countOfOrder}$`;
 bagPrice.append(bagPriceAmount);
 
 // Hidden Bag
@@ -155,6 +154,10 @@ booksList.append(bookImage);
 booksList.append(bookName);
 booksList.append(bookPrice);
 
+let cardTable = document.createElement("div");
+cardTable.className = "cardTable";
+hiddenBag.append(cardTable);
+
 let bagButtonBlock = document.createElement("div");
 bagButtonBlock.className = "bagButtonBlock ";
 hiddenBag.append(bagButtonBlock);
@@ -163,6 +166,10 @@ let confirmOrder = document.createElement("button");
 confirmOrder.className = "confirmOrder";
 confirmOrder.innerText = "Confirm Order";
 bagButtonBlock.append(confirmOrder);
+
+confirmOrder.onclick = function () {
+  location.href = "delivery.html";
+};
 
 let clearAll = document.createElement("button");
 clearAll.className = "clearAll";
@@ -191,10 +198,16 @@ function cardOfBook() {
     carddiv.append(div);
     let bookImage = document.createElement("div");
     bookImage.className = "bookImage";
+
     div.append(bookImage);
 
     let img = document.createElement("img");
     img.className = "img";
+    img.setAttribute(
+      "id",
+      `${parseInt(book.imageLink.toString().slice(7, 8)) - 1}`
+    );
+    img.setAttribute("draggable", "true");
     img.src = `${book.imageLink}`;
     bookImage.append(img);
 
@@ -265,6 +278,73 @@ function cardOfBook() {
     buttonAdd.className = "buttonAdd";
     buttonAdd.textContent = "Add To Bag";
     buttonblock.append(buttonAdd);
+
+    buttonAdd.addEventListener("click", addBookToBag);
+
+    function addBookToBag() {
+      let itemContainer = document.createElement("div");
+      itemContainer.className = "itemContainer";
+      cardTable.append(itemContainer);
+
+      let imageDrop = document.createElement("img");
+      imageDrop.className = "imageDrop";
+      imageDrop.src = book.imageLink;
+      itemContainer.append(imageDrop);
+
+      let titleTableDrop = document.createElement("div");
+      titleTableDrop.className = "titleTableDrop";
+      itemContainer.append(titleTableDrop);
+
+      let priceTableDrop = document.createElement("div");
+      priceTableDrop.className = "priceTableDrop";
+      itemContainer.append(priceTableDrop);
+
+      let closeButtonDrop = document.createElement("img");
+      closeButtonDrop.className = "closeButtonDrop";
+      closeButtonDrop.src = "./images/close.svg";
+      itemContainer.append(closeButtonDrop);
+
+      let bookNameDrop = document.createElement("p");
+      bookNameDrop.className = "bookNameDrop";
+      bookNameDrop.innerHTML = book.title;
+      titleTableDrop.append(bookNameDrop);
+
+      let authorDrop = document.createElement("p");
+      authorDrop.className = "authorDrop";
+      authorDrop.innerHTML = book.author;
+      titleTableDrop.append(authorDrop);
+
+      let priceDrop = document.createElement("p");
+      priceDrop.className = "priceDrop";
+      priceDrop.innerHTML = book.price + "$";
+      priceTableDrop.append(priceDrop);
+
+      let empArr = [];
+      const collection = document.getElementsByClassName("priceDrop");
+      countOfBooks = collection.length;
+      amountOfBooksDigit.innerHTML = `${countOfBooks}`;
+
+      for (let i = 0; i < collection.length; i++) {
+        empArr.push(collection[i].innerHTML.replace("$", ""));
+      }
+
+      let sumArr = empArr.map(Number);
+
+      bagPriceAmount.innerHTML = sumArr.reduce((p, c) => p + c);
+
+      countOfOrder = sumArr.reduce((p, c) => p + c);
+      bagPriceAmount.innerHTML = `${countOfOrder}$`;
+
+      closeButtonDrop.onclick = () => {
+        val =
+          parseInt(bagPriceAmount.innerHTML) - parseInt(priceDrop.innerHTML);
+        bagPriceAmount.innerHTML = `${val.toString()}$`;
+        itemContainer.remove();
+        const collection = document.getElementsByClassName("priceDrop");
+        countOfBooks = collection.length;
+        amountOfBooksDigit.innerHTML = `${countOfBooks}`;
+      };
+    }
   });
 }
 
@@ -275,31 +355,26 @@ cardOfBook(books);
 clearAll.onclick = () => {
   cardTable.innerHTML = "";
   countOfBooks = 0;
-  resultPrice = 0;
-  bagPriceAmount.textContent = `${resultPrice}`;
-
-  bagAmountOfBooks.textContent = `${countOfBooks}`;
+  countOfOrder = 0;
+  bagPriceAmount.innerHTML = `${countOfOrder}$`;
+  amountOfBooksDigit.innerHTML = `${countOfBooks}`;
   hiddenBag.style.display = "none";
 };
 
 let val = 0;
-let agent_1;
-hiddenBag.setAttribute("id", agent_1);
-
-let cardTable = document.createElement("div");
-cardTable.className = "cardTable";
-hiddenBag.append(cardTable);
+let copyBook1;
+hiddenBag.setAttribute("id", copyBook1);
 
 bagContainer.addEventListener("dragover", allowDrop);
 bag.addEventListener("dragover", allowDrop);
 
 function dragEnded(ev) {
-  ev.DataTransfer.setData("text", ev.target.id);
+  ev.dataTransfer.setData("text", ev.target.id);
 }
 
 function drag(ev) {
-  agent_1 = ev.target.id;
-  ev.DataTransfer.setData("text", ev.target.id);
+  ev.dataTransfer.setData("text", ev.target.id);
+  copyBook1 = ev.target.id;
 }
 
 document.body.addEventListener("dragstart", drag);
@@ -310,7 +385,7 @@ function allowDrop(ev) {
 }
 
 bagContainer.addEventListener("drop", drop);
-bag.addEventListener("drop", drop);
+//bag.addEventListener("drop", drop);
 
 function drop(ev) {
   let itemContainer = document.createElement("div");
@@ -319,8 +394,7 @@ function drop(ev) {
 
   let imageDrop = document.createElement("img");
   imageDrop.className = "imageDrop";
-  imageDrop.className = "imageDrop";
-  imageDrop.src = books[+agent_1].imageLink;
+  imageDrop.src = books[+copyBook1].imageLink;
   itemContainer.append(imageDrop);
 
   let titleTableDrop = document.createElement("div");
@@ -338,50 +412,44 @@ function drop(ev) {
 
   let bookNameDrop = document.createElement("p");
   bookNameDrop.className = "bookNameDrop";
-  bookNameDrop.innerHTML = books[+agent_1].title;
+  bookNameDrop.innerHTML = books[+copyBook1].title;
   titleTableDrop.append(bookNameDrop);
 
   let authorDrop = document.createElement("p");
   authorDrop.className = "authorDrop";
-  authorDrop.innerHTML = books[+agent_1].author;
+  authorDrop.innerHTML = books[+copyBook1].author;
   titleTableDrop.append(authorDrop);
 
   let priceDrop = document.createElement("p");
   priceDrop.className = "priceDrop";
-  priceDrop.innerHTML = books[+agent_1].price + "$";
-  priceTableDrop.className = "priceDrop";
+  priceDrop.innerHTML = books[+copyBook1].price + "$";
+  priceTableDrop.append(priceDrop);
 
   let empArr = [];
   const collection = document.getElementsByClassName("priceDrop");
   countOfBooks = collection.length;
-  amountOfBooksDigit.textContent = `${countOfBooks}`;
+  amountOfBooksDigit.innerHTML = `${countOfBooks}`;
 
   for (let i = 0; i < collection.length; i++) {
-    empArr.push(collection[i].textContent.replace("$", ""));
+    empArr.push(collection[i].innerHTML.replace("$", ""));
   }
 
   let sumArr = empArr.map(Number);
 
-  bagPriceAmount.textContent = sumArr.reduce((p, c) => p + c);
+  bagPriceAmount.innerHTML = sumArr.reduce((p, c) => p + c);
 
-  resultPrice = sumArr.reduce((p, c) => p + c);
-  bagPriceAmount.textContent = `${resultPrice}`;
+  countOfOrder = sumArr.reduce((p, c) => p + c);
+  bagPriceAmount.innerHTML = `${countOfOrder}$`;
 
   closeButtonDrop.onclick = () => {
-    val =
-      parseInt(bagPriceAmount.textContent) -
-      parseInt(priceTableDrop.textContent);
-    bagPriceAmount.textContent = val.toString();
-    bagPriceAmount.textContent = `Total: ${
-      resultPrice - parseInt(priceTableDrop.textContent)
-    }`;
-    bagPriceAmount.textContent = `Total: ${val.toString()}$`;
-
+    val = parseInt(bagPriceAmount.innerHTML) - parseInt(priceDrop.innerHTML);
+    bagPriceAmount.innerHTML = `${val.toString()}$`;
     itemContainer.remove();
     const collection = document.getElementsByClassName("priceDrop");
     countOfBooks = collection.length;
-    amountOfBooksDigit.textContent = `${countOfBooks}`;
+    amountOfBooksDigit.innerHTML = `${countOfBooks}`;
   };
+
   ev.preventDefault();
 }
 

@@ -117,7 +117,7 @@ main {
   column-gap: 15px;
   flex-direction: column;
   align-items: center;
-   position:relative;
+  position: relative;
   flex: 1 1 auto;
 }
 
@@ -283,118 +283,136 @@ footer {
   height: 25px;
 }
 
-
 .bag {
-width: 15%;
-position:fixed;
-z-index:3;
-background-color: tomato;
-left:83%;
-top:3%;
-border: 2px solid white;
-border-radius: 5px;
-cursor:pointer;
-padding: 5px;
+  width: 15%;
+  position: fixed;
+  z-index: 3;
+  background-color: tomato;
+  left: 83%;
+  top: 3%;
+  border: 2px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
 }
 
 .bagContainer {
-display: flex;
-flex-direction:column;
-gap: 10px;
-color: white;
-font-weight:bold;
-
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+  font-weight: bold;
 }
 
 .bagTitle {
-font-weight:bold;
+  font-weight: bold;
 }
 
 .bagAmountOfBooks {
- font-style: italic;
-display:flex;
-gap: 5px;
-
+  font-style: italic;
+  display: flex;
+  gap: 5px;
 }
 
 .amountOfBooksText {
- font-style: italic;
-
+  font-style: italic;
 }
 
 .amountOfBooksDigit {
- font-style: italic;
+  font-style: italic;
 }
 
 .bagPrice {
- display: flex;
-gap: 5px;
-
+  display: flex;
+  gap: 5px;
 }
 
 .bagPriceText {
 }
 
-
-
 .bagPriceAmount {
 }
 
-.hiddenBag  {
-width: 25%;
-position:fixed;
-z-index:3;
-background-color: tomato;
-left:80%;
-top:25%;
-display:flex;
-flex-direction: column;
-cursor:pointer;
-padding: 5px;
-gap: 30px;
-color: white;
-font-weight:bold;
-display:none;
+.hiddenBag {
+  width: 25%;
+  position: fixed;
+  z-index: 3;
+  background-color: tomato;
+  left: 75%;
+  top: 25%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 5px;
 
+  color: white;
+  display: none;
 }
 
 .booksList {
-display:flex;
-gap: 30px;
+  display: flex;
+  
+  gap: 25%;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .bagButtonBlock {
-display:flex;
-gap: 30px;
-
+  display: flex;
+  gap: 30px;
 }
 
 .confirmOrder {
-padding: 5px;
-background-color: white;
-border: 2px solid black;
-border-radius: 5px;
-font-weight:bold;
-
+  padding: 5px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
-
 .clearAll {
-padding: 5px;
-background-color: white;
-border: 2px solid black;
-border-radius: 5px;
-font-weight:bold;
-
+  padding: 5px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
 .confirmOrder:hover {
   color: tomato;
-
 }
 
 .clearAll:hover {
   color: tomato;
-
 }
 
+.cardTable {
+  display: flex;
+  flex-direction: column;
+  
+  gap: 7px;
+  margin-bottom: 10px;
+}
+
+.itemContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.imageDrop {
+  width: 60px;
+  height: 80px;
+}
+.titleTableDrop {
+  font-size: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.closeButtonDrop {
+  width: 20px;
+  height: 20px;
+}
