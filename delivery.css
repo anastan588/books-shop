@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+/*Normalize*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 16px;
+  position: relative;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  background-color: burlywood;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+/*--------------------*/
+
+.bigred {
+  font-size: 20px;
+  color: red;
+}
+/*Normalize*/
+
+header {
+  max-width: 1100px;
+  padding: 3%;
+}
+
+h1 {
+  font-size: 200%;
+  color: black;
+  font-style: italic;
+  font-weight: bold;
+}
+
+main {
+  max-width: 1200px;
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  flex: 1 1 auto;
+}
+
+footer {
+  max-width: 1200px;
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.rsImage {
+  height: 50px;
+}
+
+.year {
+  display: flex;
+  align-items: center;
+}
+
+.yeartext {
+  font-size: 200%;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.popup {
+  display: none;
+}
+
+.popup.open {
+  max-width: 60%;
+  position: fixed;
+  z-index: 4;
+  display: block;
+  left: 25%;
+  top: 25%;
+  background-color: rgba(255, 255, 255, 1);
+  border: 2px solid tomato;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.overlay {
+  display: none;
+}
+
+.overlay.open {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  display: block;
+}
+.popuptext {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.popupTitle {
+  align-self: center;
+  font-size: 125%;
+  font-weight: bold;
+}
+.popupDescription {
+  font-style: italic;
+}
+
+.popupClose {
+  align-self: end;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+
+.confirm-form {
+  display: block;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+ 
+}
